@@ -10,20 +10,20 @@ require_relative "lib/todo"
 require_relative "lib/event"
 require_relative "lib/link"
 
-list = UdaciList.new(title: "Julia's Stuff")
-list.add("todo", "Buy more cat food", due: "2016-02-03", priority: "low")
-list.add("todo", "Sweep floors", due: "2016-01-30")
-list.add("todo", "Buy groceries", priority: "high")
-list.add("event", "Birthday Party", start_date: "2016-05-08")
-list.add("event", "Vacation", start_date: "2016-05-28", end_date: "2016-05-31")
-list.add("link", "https://github.com", site_name: "GitHub Homepage")
-list.all
-list.delete(3)
-list.all
+# list = UdaciList.new(title: "Julia's Stuff")
+# list.add("todo", "Buy more cat food", due: "2016-02-03", priority: "low")
+# list.add("todo", "Sweep floors", due: "2016-01-30")
+# list.add("todo", "Buy groceries", priority: "high")
+# list.add("event", "Birthday Party", start_date: "2016-05-08")
+# list.add("event", "Vacation", start_date: "2016-05-28", end_date: "2016-05-31")
+# list.add("link", "https://github.com", site_name: "GitHub Homepage")
+# list.all
+# list.delete(3)
+# list.all
 
 # SHOULD CREATE AN UNTITLED LIST AND ADD ITEMS TO IT
 # --------------------------------------------------
-# new_list = UdaciList.new # Should create a list called "Untitled List"
+new_list = UdaciList.new # Should create a list called "Untitled List"
 # new_list.add("todo", "Buy more dog food", due: "in 5 weeks", priority: "medium")
 # new_list.add("todo", "Go dancing", due: "in 2 hours")
 # new_list.add("todo", "Buy groceries", priority: "high")
