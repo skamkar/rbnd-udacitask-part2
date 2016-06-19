@@ -1,4 +1,5 @@
 require 'byebug'
+require 'chronic'
 
 include UdaciListErrors
 
@@ -8,7 +9,7 @@ class TodoItem
 
   def initialize(description, options={})
     @description = description
-    @due = options[:due] ? Date.parse(options[:due]) : options[:due]
+    @due = options[:due] ? Chronic.parse(options[:due]) : options[:due]
     @priority = options[:priority] if priority_exists?(options[:priority])
   end
 
@@ -21,10 +22,10 @@ class TodoItem
   private 
 
   def priority_exists?(priority)
-    if ["low","medium","high",""].include?(priority)
+    if ["low","medium","high",nil].include?(priority)
       return true
     else
-      raise InvalidPriorityValue, "'#{priority}' not a valid priority value." 
+      raise UdaciListErrors::InvalidPriorityValue, "'#{priority}' not a valid priority value." 
     end
   end
 end

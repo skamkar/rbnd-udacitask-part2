@@ -8,7 +8,6 @@ class UdaciList
   end
 
   def add(type, description, options={})
-
     type = type.downcase
     if type_supported?(type)
       @items.push TodoItem.new(description, options) if type == "todo"
@@ -36,7 +35,7 @@ class UdaciList
     if @items[index]
       return true
     else
-      raise IndexExceedsListSize, "'#{index}' beyond item index range"
+      raise UdaciListErrors::IndexExceedsListSize, "'#{index}' beyond item index range"
     end
   end
 
@@ -44,7 +43,7 @@ class UdaciList
     if ["todo","event","link"].include?(type)
       return true
     else
-      raise InvalidItemType, "'#{type}' not a valid item type." 
+      raise UdaciListErrors::InvalidItemType, "'#{type}' not a valid item type." 
     end
   end
 end
