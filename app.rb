@@ -51,3 +51,9 @@ new_list.filter("event")
 # -------------------------
 new_list.delete_mulitple([1,4])
 new_list.all
+
+# CHANGE PRIORITY LEVEL OF TODO ITEM
+# ----------------------------------
+new_list.change_priority(2,"low")
+new_list.all
+

@@ -26,6 +26,12 @@ class UdaciList
     indices.each {|index| self.delete(index)}
   end
 
+  def change_priority(index, priority)
+    if (index_valid?(index-1)) && (item_type(@items[index-1]) == "todo") && (TodoItem.new(nil, {:priority => priority}).priority_exists?(priority))
+      @items[index-1].priority = priority
+    end
+  end
+
   def filter(type)
     self.print_list([type]) if type_supported?(type)
   end
@@ -40,7 +46,7 @@ class UdaciList
     puts ""
     puts @title
     @items.each_with_index do |item, position|
-      if types.map(&:downcase).include?(item.class.to_s[0..-5].downcase)
+      if types.map(&:downcase).include?(item_type(item))
         rows << [(position + 1), item.details] 
       end
     end
@@ -48,6 +54,10 @@ class UdaciList
   end
 
   private
+
+  def item_type(item)
+    item.class.to_s[0..-5].downcase
+  end
 
   def type_list
     return ["todo","event","link"]

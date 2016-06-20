@@ -5,7 +5,8 @@ include UdaciListErrors
 
 class TodoItem
   include Listable
-  attr_reader :description, :due, :priority
+  attr_accessor :priority
+  attr_reader :description, :due
 
   def initialize(description, options={})
     @description = description
@@ -18,8 +19,6 @@ class TodoItem
     Listable.format_date(@due) +
     Listable.format_priority(@priority)
   end
-
-  private 
 
   def priority_exists?(priority)
     if ["low","medium","high",nil].include?(priority)
