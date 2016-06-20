@@ -22,17 +22,34 @@ class UdaciList
     @items.delete_at(index - 1) if index_valid?(index)
   end
 
+ # list.filter(item_type) that takes an item_type as input and displays only list items of that type if they exist, or alerts the user if there aren't any items of that type.
+
+  def filter(type)
+    self.print_list([type])
+  end
+
   def all
+    self.print_list
+  end
+
+  def print_list(types=nil)
+    types ||= type_list
     rows = []
     puts ""
     puts @title
     @items.each_with_index do |item, position|
-      rows << [(position + 1), item.details]
+      if types.map(&:downcase).include?(item.class.to_s[0..-5].downcase)
+        rows << [(position + 1), item.details] 
+      end
     end
     puts Terminal::Table.new :rows => rows
   end
 
   private
+
+  def type_list
+    return ["todo","event","link"]
+  end
 
   def index_valid?(index)
     if @items[index]
@@ -43,7 +60,7 @@ class UdaciList
   end
 
   def type_supported?(type)
-    if ["todo","event","link"].include?(type)
+    if type_list.include?(type)
       return true
     else
       raise UdaciListErrors::InvalidItemType, "'#{type}' not a valid item type." 
