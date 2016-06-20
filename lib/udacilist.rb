@@ -22,10 +22,12 @@ class UdaciList
     @items.delete_at(index - 1) if index_valid?(index)
   end
 
- # list.filter(item_type) that takes an item_type as input and displays only list items of that type if they exist, or alerts the user if there aren't any items of that type.
+  def delete_mulitple(indices)
+    indices.each {|index| self.delete(index)}
+  end
 
   def filter(type)
-    self.print_list([type])
+    self.print_list([type]) if type_supported?(type)
   end
 
   def all
