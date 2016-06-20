@@ -1,13 +1,51 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+
+Selected the 'terminal-table' gem. It's used by the UdaciList class
+and nicely formats the tabular output for the user. The 'how' is rather
+simple - an array inputs is required by terminal-table, so instead of
+printing each row within a loop, the rows are stored to an array (within a
+loop), and printing occurs through the instantiation of a Terminal Table
+object.
+
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+
+(Note, both have been demonstrated via the app.rb file)
+
+  a) Feature 1: Delete multiple instances.
+    By iterating over each to-be-deleted instances, was able to
+    leverage the 'delete' method within the Udacilist class. Made for 
+    straightforward and robust implementation;  error handling was
+    already built into the 'delete' method.
+
+    The best part of a todo list is completing it, which is why I 
+    wanted to enable this option for the user.
+
+  b) Feature 2: Change priority level of todo item.
+    A user may now change the priority level of a todo item. The modification
+    to the data is trival, but prior to doing so, the code confirms the
+    following conditions:
+      - the index is valid (we can't change items that don't exist)
+      - the item is a 'todo' (since 'events' and 'links' are not prioritized)
+      - the new priority is valid ('yesterday' or 'whenever' are not valid ;-)
+
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+
+Three hours.
+
 2. What was the most rewarding challenge you conquered?
+
+Constructing the logic to test if the requested action by the 
+change_priority method was valid.
+
 3. What two additional features did you build? Why?
+
+(See above)
+
 4. Where do you still have room to grow?
+
+DRY DRY DRY
