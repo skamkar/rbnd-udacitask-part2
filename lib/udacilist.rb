@@ -1,3 +1,5 @@
+require 'terminal-table'
+
 class UdaciList
   include UdaciListErrors
   attr_reader :title, :items
@@ -21,12 +23,13 @@ class UdaciList
   end
 
   def all
-    puts "-" * @title.length
+    rows = []
+    puts ""
     puts @title
-    puts "-" * @title.length
     @items.each_with_index do |item, position|
-      puts "#{position + 1}) #{item.details}"
+      rows << [(position + 1), item.details]
     end
+    puts Terminal::Table.new :rows => rows
   end
 
   private
