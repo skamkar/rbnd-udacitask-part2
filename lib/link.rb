@@ -8,6 +8,6 @@ class LinkItem
   end
   
   def details
-    Listable.format_description(@description) + "site name: " + Listable.format_name(@site_name)
+    "Link: " + Listable.format_description(@description) + "site name: " + Listable.format_name(@site_name)
   end
 end

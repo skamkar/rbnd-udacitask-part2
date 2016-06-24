@@ -11,6 +11,6 @@ class EventItem
   end
 
   def details
-    Listable.format_description(@description) + "event dates: " + Listable.format_date(@start_date, @end_date)
+    "Event: " + Listable.format_description(@description) + "event dates: " + Listable.format_date(@start_date, @end_date)
   end
 end

@@ -15,6 +15,7 @@ class TodoItem
   end
 
   def details
+    "Todo: " +
     Listable.format_description(@description) + "due: " +
     Listable.format_date(@due) +
     Listable.format_priority(@priority)
