@@ -49,7 +49,7 @@ new_list.filter("event")
 
 # DELETE MULTIPLE INSTANCES
 # -------------------------
-new_list.delete_mulitple([1,4])
+new_list.delete_multiple([1,8])
 new_list.all
 
 # CHANGE PRIORITY LEVEL OF TODO ITEM

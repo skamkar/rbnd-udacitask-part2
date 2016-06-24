@@ -19,11 +19,12 @@ class UdaciList
   end
 
   def delete(index)
-    @items.delete_at(index - 1) if index_valid?(index)
+    @items.delete_at(index - 1) if index_valid?(index - 1)
   end
 
-  def delete_mulitple(indices)
-    indices.each {|index| self.delete(index)}
+  def delete_multiple(indices)
+    sorted_indices = indices.sort.reverse
+    sorted_indices.each {|index| self.delete(index)}
   end
 
   def change_priority(index, priority)
